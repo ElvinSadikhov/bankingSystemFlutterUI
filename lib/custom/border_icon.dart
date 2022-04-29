@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class BorderIcon extends StatelessWidget {
+  final Function onTap;
   final Widget child;
   final double height, width;
 
@@ -8,13 +9,14 @@ class BorderIcon extends StatelessWidget {
       {Key? key,
       required this.child,
       required this.height,
-      required this.width})
+      required this.width,
+      required this.onTap})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => {debugPrint("BorderIcon is being tapped!")},
+      onTap: () => onTap(),
       child: Container(
         width: width,
         height: height,

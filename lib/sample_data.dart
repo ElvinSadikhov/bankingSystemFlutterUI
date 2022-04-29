@@ -27,9 +27,38 @@ const BS_EXPENDATURE_DATA = [
 
 const BS_CARD_HOLDER_DATA = {
   "name": "Ghulam",
+  "position": "UX UI designer",
+  "profile photo": "assets/images/profile_photo.png",
   "chip image": "assets/images/chip.png",
   "card logo": "assets/images/master_card.png",
   "card type": "Mastercard",
   "card number": "4562 1122 4595 7852",
   "expry date": "24/2021",
 };
+
+const BS_SETTINGS_OPTIONS = [
+  {
+    "image": "assets/images/corporate_app.png",
+    "header": "Corporate APP",
+  },
+  {
+    "image": "assets/images/security_settings.png",
+    "header": "Security Settings",
+  },
+  {
+    "image": "assets/images/online_shopping.png",
+    "header": "Online Shopping",
+  },
+  {
+    "image": "assets/images/groceries.png",
+    "header": "Groceries",
+  },
+  {
+    "image": "assets/images/utilities.png",
+    "header": "Utilities",
+  },
+  {
+    "image": "assets/images/thumb_scanner.png",
+    "header": "Thumb Scanner",
+  },
+];

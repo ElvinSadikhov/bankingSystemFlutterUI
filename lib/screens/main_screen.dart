@@ -26,16 +26,26 @@ class MainScreen extends StatelessWidget {
                   horizontal: viewPaddingLength, vertical: 8),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children:
-                    [Icons.arrow_back_ios_rounded, Icons.more_vert_rounded]
-                        .map((icon) => BorderIcon(
-                            child: Icon(
-                              icon,
-                              color: COLOR_WHITE,
-                            ),
-                            height: iconSize,
-                            width: iconSize))
-                        .toList(),
+                children: [
+                  BorderIcon(
+                    child: const Icon(
+                      Icons.arrow_back_ios_rounded,
+                      color: COLOR_WHITE,
+                    ),
+                    height: iconSize,
+                    width: iconSize,
+                    onTap: () => debugPrint("BackButton is being tapped!"),
+                  ),
+                  BorderIcon(
+                    child: const Icon(
+                      Icons.more_vert_rounded,
+                      color: COLOR_WHITE,
+                    ),
+                    height: iconSize,
+                    width: iconSize,
+                    onTap: () => debugPrint("OptionsButton is being tapped!"),
+                  ),
+                ],
               ),
             ),
             addVerticalSpace(verticalDistance),
@@ -68,7 +78,7 @@ class MainScreen extends StatelessWidget {
                       child: const Icon(
                         Icons.add,
                         color: COLOR_BLACK,
-                        size: iconSize,
+                        size: iconSize - 10,
                       ),
                     ),
                   )
@@ -205,7 +215,7 @@ class ExpendetureItem extends StatelessWidget {
           child: Container(
             color: COLOR_GREY.shade900,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 22),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

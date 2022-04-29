@@ -49,29 +49,23 @@ const TextTheme TEXT_THEME_MAIN_SCREEN = TextTheme(
       fontSize: 15),
 );
 
-// const TextTheme TEXT_THEME_SECOND_SCREEN = TextTheme(
-//   // for messages, likes, watched counts
-//   headline1: TextStyle(
-//       fontFamily: "RadioCanada",
-//       color: COLOR_WHITE,
-//       fontWeight: FontWeight.w600,
-//       fontSize: 12),
-//   // name
-//   headline2: TextStyle(
-//       fontFamily: "RadioCanada",
-//       color: COLOR_WHITE,
-//       fontWeight: FontWeight.bold,
-//       fontSize: 24),
-//   // info
-//   headline3: TextStyle(
-//       fontFamily: "RadioCanada",
-//       color: COLOR_WHITE,
-//       fontWeight: FontWeight.w500,
-//       fontSize: 14),
-//   // Follow
-//   headline4: TextStyle(
-//       fontFamily: "RadioCanada",
-//       color: COLOR_WHITE,
-//       fontWeight: FontWeight.w800,
-//       fontSize: 14),
-// );
+const TextTheme TEXT_THEME_SECOND_SCREEN = TextTheme(
+  // name
+  headline1: TextStyle(
+      fontFamily: "RadioCanada",
+      color: COLOR_GREY,
+      fontWeight: FontWeight.w600,
+      fontSize: 30),
+  // position
+  headline2: TextStyle(
+      fontFamily: "RadioCanada",
+      color: COLOR_WHITE,
+      fontWeight: FontWeight.w300,
+      fontSize: 15),
+  // choise option
+  headline3: TextStyle(
+      fontFamily: "RadioCanada",
+      color: COLOR_WHITE,
+      fontWeight: FontWeight.w300,
+      fontSize: 19),
+);
