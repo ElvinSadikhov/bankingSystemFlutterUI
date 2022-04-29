@@ -10,7 +10,6 @@ class SecondScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
-    final Size sizeOfScreen = MediaQuery.of(context).size;
 
     return SafeArea(
       child: Scaffold(
@@ -39,7 +38,6 @@ class SecondScreen extends StatelessWidget {
                       style: themeData.textTheme.headline2,
                     ),
                     addVerticalSpace(30),
-                    // need to put here another image AND CHANGE SAMPLE DATA FILE
                     Column(
                       children: [
                         ["0", "Corporate APP is being tapped!"],
@@ -107,27 +105,30 @@ class ChoiseOption extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
 
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 10),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(20),
-        child: Container(
-          color: COLOR_BLACK,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-            child: Row(
-              children: [
-                Image.asset(
-                  iconDirectory,
-                  height: 50,
-                  width: 50,
-                ),
-                addHorizontalSpace(20),
-                Text(
-                  header,
-                  style: themeData.textTheme.headline3,
-                )
-              ],
+    return GestureDetector(
+      onTap: () => debugPrint(onTapMessage),
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 10),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(20),
+          child: Container(
+            color: COLOR_BLACK,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              child: Row(
+                children: [
+                  Image.asset(
+                    iconDirectory,
+                    height: 50,
+                    width: 50,
+                  ),
+                  addHorizontalSpace(20),
+                  Text(
+                    header,
+                    style: themeData.textTheme.headline3,
+                  )
+                ],
+              ),
             ),
           ),
         ),
