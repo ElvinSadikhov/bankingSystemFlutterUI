@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ui_task_2/custom/border_icon.dart';
 import 'package:ui_task_2/sample_data.dart';
 import 'package:ui_task_2/utils/constants.dart';
-import 'package:ui_task_2/utils/widget_functions.dart';
+import 'package:ui_task_2/utils/widget_methods.dart';
 
 class SecondScreen extends StatelessWidget {
   const SecondScreen({Key? key}) : super(key: key);
@@ -13,7 +13,7 @@ class SecondScreen extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-          backgroundColor: COLOR_BLACK,
+          backgroundColor: AppConstants.getColors.black,
           body: Stack(
             children: [
               Padding(
@@ -22,22 +22,22 @@ class SecondScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Image.asset(
-                      BS_CARD_HOLDER_DATA["profile photo"]!,
+                      AppData.getCardHolderData.getProfilePhoto,
                       fit: BoxFit.cover,
                       height: 65,
                       width: 65,
                     ),
-                    addVerticalSpace(10),
+                    WidgetMethods.verticalSpace(10),
                     Text(
-                      BS_CARD_HOLDER_DATA["name"]!,
+                      AppData.getCardHolderData.getName,
                       style: themeData.textTheme.headline1,
                     ),
-                    addVerticalSpace(2),
+                    WidgetMethods.verticalSpace(2),
                     Text(
-                      BS_CARD_HOLDER_DATA["position"]!,
+                      AppData.getCardHolderData.getPosition,
                       style: themeData.textTheme.headline2,
                     ),
-                    addVerticalSpace(30),
+                    WidgetMethods.verticalSpace(30),
                     Column(
                       children: [
                         ["0", "Corporate APP is being tapped!"],
@@ -48,11 +48,14 @@ class SecondScreen extends StatelessWidget {
                         ["5", "ThumbScanner is being tapped!"],
                       ]
                           .map((args) => ChoiseOption(
-                              iconDirectory:
-                                  BS_SETTINGS_OPTIONS[int.parse(args[0])]
-                                      ["image"]!,
-                              header: BS_SETTINGS_OPTIONS[int.parse(args[0])]
-                                  ["header"]!,
+                              iconDirectory: AppData
+                                  .getSettingOptionsData
+                                  .getSettingsOptions[int.parse(args[0])]
+                                  .getImage,
+                              header: AppData
+                                  .getSettingOptionsData
+                                  .getSettingsOptions[int.parse(args[0])]
+                                  .getTitle,
                               onTapMessage: args[1]))
                           .toList(),
                     )
@@ -68,16 +71,17 @@ class SecondScreen extends StatelessWidget {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(18),
                       child: Container(
-                        color: COLOR_GREY.shade800,
+                        color: AppConstants.getColors.grey.shade800,
                         child: BorderIcon(
-                            child: const Icon(
+                            child: Icon(
                               Icons.close,
-                              color: COLOR_WHITE,
+                              color: AppConstants.getColors.white,
                             ),
                             height: 55,
                             width: 55,
-                            onTap: () =>
-                                debugPrint("CloseButton is being tapped!")),
+                            onTap: () {
+                              debugPrint("CloseButton is being tapped!");
+                            }),
                       ),
                     ),
                   ),
@@ -106,13 +110,15 @@ class ChoiseOption extends StatelessWidget {
     final ThemeData themeData = Theme.of(context);
 
     return GestureDetector(
-      onTap: () => debugPrint(onTapMessage),
+      onTap: () {
+        debugPrint(onTapMessage);
+      },
       child: Padding(
         padding: const EdgeInsets.only(bottom: 10),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(20),
           child: Container(
-            color: COLOR_BLACK,
+            color: AppConstants.getColors.black,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
               child: Row(
@@ -122,7 +128,7 @@ class ChoiseOption extends StatelessWidget {
                     height: 50,
                     width: 50,
                   ),
-                  addHorizontalSpace(20),
+                  WidgetMethods.horizontalSpace(20),
                   Text(
                     header,
                     style: themeData.textTheme.headline3,

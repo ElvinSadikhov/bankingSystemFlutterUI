@@ -1,71 +1,97 @@
 import 'package:flutter/material.dart';
 
-const COLOR_WHITE = Colors.white;
+class AppConstants {
+  AppConstants._();
 
-const COLOR_BLACK = Colors.black;
+  static final _AppColors _colors = _AppColors._();
+  static final _AppThemes _themes = _AppThemes._();
+  static final _AppPaddings _paddings = _AppPaddings._();
 
-const COLOR_AMBER = Colors.amber;
+  static _AppColors get getColors => _colors;
+  static _AppThemes get getThemes => _themes;
+  static _AppPaddings get getPaddings => _paddings;
+}
 
-const COLOR_GREY = Colors.grey;
+class _AppPaddings {
+  _AppPaddings._();
 
-const COLOR_BLUE = Color.fromRGBO(125, 90, 230, 1);
+  final double kDefaultPadding = 15;
+}
 
-const TextTheme TEXT_THEME_MAIN_SCREEN = TextTheme(
-  // Your Cards
-  headline1: TextStyle(
-      fontFamily: "RadioCanada",
-      color: COLOR_WHITE,
-      fontWeight: FontWeight.w700,
-      fontSize: 30),
-  // You have 3 cards
-  headline2: TextStyle(
-      fontFamily: "RadioCanada",
-      color: COLOR_GREY,
-      fontWeight: FontWeight.w600,
-      fontSize: 15),
-  // card number
-  headline3: TextStyle(
-      fontFamily: "RadioCanada",
-      color: COLOR_WHITE,
-      fontWeight: FontWeight.w700,
-      fontSize: 24),
-  // name and date on card
-  headline4: TextStyle(
-      fontFamily: "RadioCanada",
-      color: COLOR_WHITE,
-      fontWeight: FontWeight.w700,
-      fontSize: 16),
-  // Expry date
-  headline5: TextStyle(
-      fontFamily: "RadioCanada",
-      color: COLOR_WHITE,
-      fontWeight: FontWeight.bold,
-      fontSize: 12),
-  // Mastercard
-  headline6: TextStyle(
-      fontFamily: "RadioCanada",
-      color: COLOR_WHITE,
-      fontWeight: FontWeight.w500,
-      fontSize: 15),
-);
+class _AppColors {
+  _AppColors._();
 
-const TextTheme TEXT_THEME_SECOND_SCREEN = TextTheme(
-  // name
-  headline1: TextStyle(
-      fontFamily: "RadioCanada",
-      color: COLOR_GREY,
-      fontWeight: FontWeight.w600,
-      fontSize: 30),
-  // position
-  headline2: TextStyle(
-      fontFamily: "RadioCanada",
-      color: COLOR_WHITE,
-      fontWeight: FontWeight.w300,
-      fontSize: 15),
-  // choise option
-  headline3: TextStyle(
-      fontFamily: "RadioCanada",
-      color: COLOR_WHITE,
-      fontWeight: FontWeight.w300,
-      fontSize: 19),
-);
+  final white = Colors.white;
+
+  final black = Colors.black;
+
+  final amber = Colors.amber;
+
+  final grey = Colors.grey;
+
+  final blue = const Color.fromRGBO(125, 90, 230, 1);
+}
+
+class _AppThemes {
+  _AppThemes._();
+
+  final TextTheme firstScreen = TextTheme(
+    // Your Cards
+    headline1: TextStyle(
+        fontFamily: "RadioCanada",
+        color: AppConstants.getColors.white,
+        fontWeight: FontWeight.w700,
+        fontSize: 30),
+    // You have 3 cards
+    headline2: TextStyle(
+        fontFamily: "RadioCanada",
+        color: AppConstants.getColors.grey,
+        fontWeight: FontWeight.w600,
+        fontSize: 15),
+    // card number
+    headline3: TextStyle(
+        fontFamily: "RadioCanada",
+        color: AppConstants.getColors.white,
+        fontWeight: FontWeight.w700,
+        fontSize: 24),
+    // name and date on card
+    headline4: TextStyle(
+        fontFamily: "RadioCanada",
+        color: AppConstants.getColors.white,
+        fontWeight: FontWeight.w700,
+        fontSize: 16),
+    // Expry date
+    headline5: TextStyle(
+        fontFamily: "RadioCanada",
+        color: AppConstants.getColors.white,
+        fontWeight: FontWeight.bold,
+        fontSize: 12),
+    // Mastercard
+    headline6: TextStyle(
+        fontFamily: "RadioCanada",
+        color: AppConstants.getColors.white,
+        fontWeight: FontWeight.w500,
+        fontSize: 15),
+  );
+
+  final TextTheme secondScreen = TextTheme(
+    // name
+    headline1: TextStyle(
+        fontFamily: "RadioCanada",
+        color: AppConstants.getColors.grey,
+        fontWeight: FontWeight.w600,
+        fontSize: 30),
+    // position
+    headline2: TextStyle(
+        fontFamily: "RadioCanada",
+        color: AppConstants.getColors.white,
+        fontWeight: FontWeight.w300,
+        fontSize: 15),
+    // choise option
+    headline3: TextStyle(
+        fontFamily: "RadioCanada",
+        color: AppConstants.getColors.white,
+        fontWeight: FontWeight.w300,
+        fontSize: 19),
+  );
+}
