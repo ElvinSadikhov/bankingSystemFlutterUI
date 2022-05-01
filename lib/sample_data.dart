@@ -1,5 +1,3 @@
-import 'package:ui_task_2/utils/constants.dart';
-
 class AppData {
   AppData._();
 
@@ -11,6 +9,11 @@ class AppData {
   static _ExpendetureData get getExpendetureData => _expendetureData;
   static _CardHolderData get getCardHolderData => _cardHolderData;
   static _SettingsOptionsData get getSettingOptionsData => _settingOptionsData;
+}
+
+// LETS WORK ON IT
+class _GeneralData {
+  _GeneralData._();
 }
 
 class _ExpendetureData {

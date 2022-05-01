@@ -8,13 +8,11 @@ import 'package:ui_task_2/utils/widget_methods.dart';
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);
 
+  final double iconSize = 30;
+
   @override
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
-    const double verticalDistance = 15;
-    const double iconSize = 30;
-    const double viewPaddingLength = 15;
-    const double textPaddingLength = 20;
 
     return SafeArea(
       child: Scaffold(
@@ -22,8 +20,9 @@ class MainScreen extends StatelessWidget {
         body: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: viewPaddingLength, vertical: 8),
+              padding: EdgeInsets.symmetric(
+                  horizontal: AppConstants.getPaddings.kDefaultPadding,
+                  vertical: 8),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -52,10 +51,11 @@ class MainScreen extends StatelessWidget {
                 ],
               ),
             ),
-            WidgetMethods.verticalSpace(verticalDistance),
+            WidgetMethods.verticalSpace(
+                AppConstants.getPaddings.kDefaultPadding),
             Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: textPaddingLength),
+              padding: EdgeInsets.symmetric(
+                  horizontal: AppConstants.getPaddings.kDefaultPadding + 5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -92,10 +92,11 @@ class MainScreen extends StatelessWidget {
                 ],
               ),
             ),
-            WidgetMethods.verticalSpace(verticalDistance),
+            WidgetMethods.verticalSpace(
+                AppConstants.getPaddings.kDefaultPadding),
             Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: viewPaddingLength),
+              padding: EdgeInsets.symmetric(
+                  horizontal: AppConstants.getPaddings.kDefaultPadding),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(30),
                 child: Container(
@@ -113,7 +114,8 @@ class MainScreen extends StatelessWidget {
                           width: 40,
                           height: 30,
                         ),
-                        WidgetMethods.verticalSpace(verticalDistance),
+                        WidgetMethods.verticalSpace(
+                            AppConstants.getPaddings.kDefaultPadding),
                         Text(
                           AppData.getCardHolderData.getCardNumber,
                           style: themeData.textTheme.headline3,
@@ -153,7 +155,7 @@ class MainScreen extends StatelessWidget {
                                     width: 60,
                                   ),
                                   Text(
-                                    AppData.getCardHolderData.getCardLogo,
+                                    AppData.getCardHolderData.getCardType,
                                     style: themeData.textTheme.headline6,
                                   )
                                 ],
@@ -167,20 +169,19 @@ class MainScreen extends StatelessWidget {
                 ),
               ),
             ),
-            WidgetMethods.verticalSpace(verticalDistance),
+            WidgetMethods.verticalSpace(
+                AppConstants.getPaddings.kDefaultPadding),
             Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: textPaddingLength),
+              padding: EdgeInsets.symmetric(
+                  horizontal: AppConstants.getPaddings.kDefaultPadding + 5),
               child: Container(
                   alignment: Alignment.centerLeft,
                   child: Text("Recent transactions",
-                      style: TextStyle(
-                          fontFamily: "RadioCanada",
-                          color: AppConstants.getColors.grey.shade200,
-                          fontWeight: FontWeight.w800,
-                          fontSize: 24))),
+                      style: AppConstants.getThemes.firstScreen.headline1!
+                          .copyWith(fontSize: 24))),
             ),
-            WidgetMethods.verticalSpace(verticalDistance),
+            WidgetMethods.verticalSpace(
+                AppConstants.getPaddings.kDefaultPadding),
             Expanded(
               child: SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
@@ -190,7 +191,7 @@ class MainScreen extends StatelessWidget {
                       .map((index) => ExpendetureItem(
                           imageDir: AppData.getExpendetureData
                               .getExpendetures[index].getImage,
-                          header: AppData.getExpendetureData
+                          title: AppData.getExpendetureData
                               .getExpendetures[index].getTitle,
                           date: AppData.getExpendetureData
                               .getExpendetures[index].getDate,
@@ -208,12 +209,12 @@ class MainScreen extends StatelessWidget {
 }
 
 class ExpendetureItem extends StatelessWidget {
-  final String imageDir, header, date, amount;
+  final String imageDir, title, date, amount;
 
   const ExpendetureItem(
       {Key? key,
       required this.imageDir,
-      required this.header,
+      required this.title,
       required this.date,
       required this.amount})
       : super(key: key);
@@ -249,31 +250,27 @@ class ExpendetureItem extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            header,
-                            style: TextStyle(
-                                fontFamily: "RadioCanada",
-                                color: AppConstants.getColors.grey.shade200,
-                                fontWeight: FontWeight.w700,
-                                fontSize: 17),
+                            title,
+                            style: AppConstants.getThemes.firstScreen.headline1!
+                                .copyWith(fontSize: 17),
                           ),
                           WidgetMethods.verticalSpace(5),
                           Text(date,
-                              style: TextStyle(
-                                  fontFamily: "RadioCanada",
-                                  color: AppConstants.getColors.white,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 15))
+                              style: AppConstants
+                                  .getThemes.firstScreen.headline4!
+                                  .copyWith(
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 15))
                         ],
                       )
                     ],
                   ),
                   Text(
                     MoneyConverter.convert(amount),
-                    style: TextStyle(
-                        fontFamily: "RadioCanada",
-                        color: AppConstants.getColors.grey.shade400,
-                        fontWeight: FontWeight.w900,
-                        fontSize: 14),
+                    style: AppConstants.getThemes.firstScreen.headline5!
+                        .copyWith(
+                            fontSize: 14,
+                            color: AppConstants.getColors.grey.shade500),
                   )
                 ],
               ),

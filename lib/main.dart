@@ -8,17 +8,19 @@ class Main extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return MaterialApp(
-    //   theme: ThemeData(
-    //       primaryColor: COLOR_BLACK, textTheme: TEXT_THEME_MAIN_SCREEN),
-    //   home: const MainScreen(),
-    // );
     return MaterialApp(
       theme: ThemeData(
           primaryColor: AppConstants.getColors.black,
-          textTheme: AppConstants.getThemes.secondScreen),
-      home: const SecondScreen(),
+          textTheme: AppConstants.getThemes.firstScreen),
+      home: const MainScreen(),
     );
+
+    // return MaterialApp(
+    //   theme: ThemeData(
+    //       primaryColor: AppConstants.getColors.black,
+    //       textTheme: AppConstants.getThemes.secondScreen),
+    //   home: const SecondScreen(),
+    // );
   }
 }
 

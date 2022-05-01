@@ -15,7 +15,7 @@ class AppConstants {
 class _AppPaddings {
   _AppPaddings._();
 
-  final double kDefaultPadding = 0; // to change
+  final double kDefaultPadding = 15;
 }
 
 class _AppColors {
