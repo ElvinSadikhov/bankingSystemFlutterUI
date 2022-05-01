@@ -3,7 +3,7 @@ import 'package:ui_task_2/custom/border_icon.dart';
 import 'package:ui_task_2/sample_data.dart';
 import 'package:ui_task_2/utils/constants.dart';
 import 'package:ui_task_2/utils/money_converter.dart';
-import 'package:ui_task_2/utils/widget_functions.dart';
+import 'package:ui_task_2/utils/widget_methods.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -18,7 +18,7 @@ class MainScreen extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: COLOR_BLACK,
+        backgroundColor: AppConstants.getColors.black,
         body: Column(
           children: [
             Padding(
@@ -28,27 +28,31 @@ class MainScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   BorderIcon(
-                    child: const Icon(
+                    child: Icon(
                       Icons.arrow_back_ios_rounded,
-                      color: COLOR_WHITE,
+                      color: AppConstants.getColors.white,
                     ),
                     height: iconSize,
                     width: iconSize,
-                    onTap: () => debugPrint("BackButton is being tapped!"),
+                    onTap: () {
+                      debugPrint("BackButton is being tapped!");
+                    },
                   ),
                   BorderIcon(
-                    child: const Icon(
+                    child: Icon(
                       Icons.more_vert_rounded,
-                      color: COLOR_WHITE,
+                      color: AppConstants.getColors.white,
                     ),
                     height: iconSize,
                     width: iconSize,
-                    onTap: () => debugPrint("OptionsButton is being tapped!"),
+                    onTap: () {
+                      debugPrint("OptionsButton is being tapped!");
+                    },
                   ),
                 ],
               ),
             ),
-            addVerticalSpace(verticalDistance),
+            WidgetMethods.verticalSpace(verticalDistance),
             Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: textPaddingLength),
@@ -69,15 +73,18 @@ class MainScreen extends StatelessWidget {
                     ],
                   ),
                   GestureDetector(
-                    onTap: () => {debugPrint("AddCard is being tapped!")},
+                    onTap: () {
+                      debugPrint("AddCard is being tapped!");
+                    },
                     child: Container(
                       height: 40,
                       width: 40,
                       decoration: BoxDecoration(
-                          shape: BoxShape.circle, color: COLOR_AMBER.shade300),
-                      child: const Icon(
+                          shape: BoxShape.circle,
+                          color: AppConstants.getColors.amber.shade300),
+                      child: Icon(
                         Icons.add,
-                        color: COLOR_BLACK,
+                        color: AppConstants.getColors.black,
                         size: iconSize - 10,
                       ),
                     ),
@@ -85,14 +92,15 @@ class MainScreen extends StatelessWidget {
                 ],
               ),
             ),
-            addVerticalSpace(verticalDistance),
+            WidgetMethods.verticalSpace(verticalDistance),
             Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: viewPaddingLength),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(30),
                 child: Container(
-                  color: COLOR_BLUE.withAlpha(170).withRed(100),
+                  color:
+                      AppConstants.getColors.blue.withAlpha(170).withRed(100),
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(28, 28, 20, 28),
                     child: Column(
@@ -100,17 +108,17 @@ class MainScreen extends StatelessWidget {
                       children: [
                         //
                         Image.asset(
-                          BS_CARD_HOLDER_DATA["chip image"]!,
+                          AppData.getCardHolderData.getChipImage,
                           fit: BoxFit.cover,
                           width: 40,
                           height: 30,
                         ),
-                        addVerticalSpace(verticalDistance),
+                        WidgetMethods.verticalSpace(verticalDistance),
                         Text(
-                          BS_CARD_HOLDER_DATA["card number"]!,
+                          AppData.getCardHolderData.getCardNumber,
                           style: themeData.textTheme.headline3,
                         ),
-                        addVerticalSpace(10),
+                        WidgetMethods.verticalSpace(10),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -118,17 +126,17 @@ class MainScreen extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  BS_CARD_HOLDER_DATA["name"]!,
+                                  AppData.getCardHolderData.getName,
                                   style: themeData.textTheme.headline4,
                                 ),
-                                addVerticalSpace(10),
+                                WidgetMethods.verticalSpace(10),
                                 Text(
                                   "Expry date",
                                   style: themeData.textTheme.headline5,
                                 ),
-                                addVerticalSpace(5),
+                                WidgetMethods.verticalSpace(5),
                                 Text(
-                                  BS_CARD_HOLDER_DATA["expry date"]!,
+                                  AppData.getCardHolderData.getExpryDate,
                                   style: themeData.textTheme.headline4,
                                 )
                               ],
@@ -140,12 +148,12 @@ class MainScreen extends StatelessWidget {
                               child: Column(
                                 children: [
                                   Image.asset(
-                                    BS_CARD_HOLDER_DATA["card logo"]!,
+                                    AppData.getCardHolderData.getCardLogo,
                                     height: 60,
                                     width: 60,
                                   ),
                                   Text(
-                                    BS_CARD_HOLDER_DATA["card type"]!,
+                                    AppData.getCardHolderData.getCardLogo,
                                     style: themeData.textTheme.headline6,
                                   )
                                 ],
@@ -159,7 +167,7 @@ class MainScreen extends StatelessWidget {
                 ),
               ),
             ),
-            addVerticalSpace(verticalDistance),
+            WidgetMethods.verticalSpace(verticalDistance),
             Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: textPaddingLength),
@@ -168,11 +176,11 @@ class MainScreen extends StatelessWidget {
                   child: Text("Recent transactions",
                       style: TextStyle(
                           fontFamily: "RadioCanada",
-                          color: COLOR_GREY.shade200,
+                          color: AppConstants.getColors.grey.shade200,
                           fontWeight: FontWeight.w800,
                           fontSize: 24))),
             ),
-            addVerticalSpace(verticalDistance),
+            WidgetMethods.verticalSpace(verticalDistance),
             Expanded(
               child: SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
@@ -180,10 +188,14 @@ class MainScreen extends StatelessWidget {
                 child: Column(
                   children: [0, 1, 2, 3]
                       .map((index) => ExpendetureItem(
-                          imageDir: BS_EXPENDATURE_DATA[index]["image"]!,
-                          header: BS_EXPENDATURE_DATA[index]["source"]!,
-                          date: BS_EXPENDATURE_DATA[index]["date"]!,
-                          amount: BS_EXPENDATURE_DATA[index]["amount"]!))
+                          imageDir: AppData.getExpendetureData
+                              .getExpendetures[index].getImage,
+                          header: AppData.getExpendetureData
+                              .getExpendetures[index].getTitle,
+                          date: AppData.getExpendetureData
+                              .getExpendetures[index].getDate,
+                          amount: AppData.getExpendetureData
+                              .getExpendetures[index].getAmount))
                       .toList(),
                 ),
               ),
@@ -213,7 +225,7 @@ class ExpendetureItem extends StatelessWidget {
       child: ClipRRect(
           borderRadius: BorderRadius.circular(30),
           child: Container(
-            color: COLOR_GREY.shade900,
+            color: AppConstants.getColors.grey.shade900,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 22),
               child: Row(
@@ -229,10 +241,10 @@ class ExpendetureItem extends StatelessWidget {
                             height: 35,
                             width: 35,
                           ),
-                          addVerticalSpace(4),
+                          WidgetMethods.verticalSpace(4),
                         ],
                       ),
-                      addHorizontalSpace(35),
+                      WidgetMethods.horizontalSpace(35),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -240,15 +252,15 @@ class ExpendetureItem extends StatelessWidget {
                             header,
                             style: TextStyle(
                                 fontFamily: "RadioCanada",
-                                color: COLOR_GREY.shade200,
+                                color: AppConstants.getColors.grey.shade200,
                                 fontWeight: FontWeight.w700,
                                 fontSize: 17),
                           ),
-                          addVerticalSpace(5),
+                          WidgetMethods.verticalSpace(5),
                           Text(date,
-                              style: const TextStyle(
+                              style: TextStyle(
                                   fontFamily: "RadioCanada",
-                                  color: COLOR_WHITE,
+                                  color: AppConstants.getColors.white,
                                   fontWeight: FontWeight.w500,
                                   fontSize: 15))
                         ],
@@ -256,10 +268,10 @@ class ExpendetureItem extends StatelessWidget {
                     ],
                   ),
                   Text(
-                    converter(amount),
+                    MoneyConverter.convert(amount),
                     style: TextStyle(
                         fontFamily: "RadioCanada",
-                        color: COLOR_GREY.shade400,
+                        color: AppConstants.getColors.grey.shade400,
                         fontWeight: FontWeight.w900,
                         fontSize: 14),
                   )

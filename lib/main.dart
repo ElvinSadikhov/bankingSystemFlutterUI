@@ -15,7 +15,8 @@ class Main extends StatelessWidget {
     // );
     return MaterialApp(
       theme: ThemeData(
-          primaryColor: COLOR_BLACK, textTheme: TEXT_THEME_SECOND_SCREEN),
+          primaryColor: AppConstants.getColors.black,
+          textTheme: AppConstants.getThemes.secondScreen),
       home: const SecondScreen(),
     );
   }
